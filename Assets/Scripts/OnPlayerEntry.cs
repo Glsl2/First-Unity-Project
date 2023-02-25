@@ -12,6 +12,7 @@ public class OnPlayerEntry : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if ( other.name == "Player" ) {
             GameObject newSurface = Instantiate(prefab, Vector3.forward + transform.position + offset, Quaternion.identity);
+            newSurface.tag = "Prefab: generate obstacles";
             Debug.Log("Player Detected!");
         }
     }
