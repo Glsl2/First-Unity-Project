@@ -7,12 +7,19 @@ public class FollowPlayer : MonoBehaviour
 
     // Gets player position
     public Transform playerPos;
-    // The offest of the camera related to player
+
+    // The offest and rotation of the camera related to player
     public Vector3 offset;
+    public Vector3 rotation;
+
+    void Start()
+    {
+        transform.rotation = Quaternion.Euler(rotation);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerPos.position + offset;
+        transform.SetPositionAndRotation(playerPos.position + offset, Quaternion.Euler(rotation));
     }
 }
